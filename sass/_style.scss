@@ -1,0 +1,489 @@
+// RESETS
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+}
+
+// PIXEL -> REM (FUNC)
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
+//
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.1;
+  color: hsl(243, 87%, 12%);
+
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+}
+
+.container {
+  max-width: rem(1600px);
+  // padding: 0 rem(32px);
+  margin: 0 auto;
+  // display: grid;
+  // justify-content: center;
+  // align-items: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Poppins";
+}
+
+.heading {
+  &__primary {
+    font-size: rem(40px);
+    margin-bottom: rem(28px);
+
+    @include respond(phone) {
+      font-size: rem(28px);
+    }
+  }
+
+  &__secondary {
+    font-size: rem(36px);
+    margin-bottom: rem(18px);
+
+    @include respond(phone) {
+      font-size: rem(22px);
+      text-align: center;
+    }
+  }
+
+  &__tertiary {
+    font-size: rem(20px);
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: rem(20px);
+  }
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.text {
+  color: hsl(192, 100%, 9%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: rem(54px) rem(45px);
+
+  @include respond(phone) {
+    padding: rem(25px) rem(20px);
+  }
+
+  &__btn {
+    font-size: rem(15px);
+    color: hsl(322, 100%, 66%);
+    border: 1px solid hsl(322, 100%, 66%);
+    padding: rem(9px) rem(30px);
+    border-radius: 20px;
+
+    @include respond(phone) {
+      padding: rem(7px) rem(20px);
+      font-size: rem(14px);
+    }
+  }
+
+  &__logo {
+    @include respond(phone) {
+      width: 50%;
+    }
+  }
+}
+
+.hero {
+  &__container {
+    text-align: center;
+  }
+
+  &__text {
+    color: hsl(192, 100%, 9%);
+    margin-bottom: rem(42px);
+    padding: 0 rem(340px);
+    line-height: 1.5;
+
+    @include respond(phone) {
+      padding: 0;
+    }
+  }
+
+  &__btn {
+    background-color: hsl(322, 100%, 66%);
+    color: hsl(207, 100%, 98%);
+    padding: rem(23px) rem(84px);
+    margin-bottom: rem(80px);
+    font-weight: 600;
+    border-radius: 32px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 8px;
+    transition: all 0.4s;
+
+    @include respond(phone) {
+      padding: rem(18px) rem(70px);
+    }
+
+    &:hover {
+      background-color: lighten(hsl(322, 100%, 66%), 5%);
+    }
+  }
+
+  &__img {
+    margin-bottom: rem(120px);
+
+    @include respond(phone) {
+      margin-bottom: rem(80px);
+    }
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-around;
+
+    @include respond(phone) {
+      flex-direction: column;
+      justify-content: center;
+      gap: rem(60px);
+    }
+
+    &__icon {
+      margin-bottom: rem(16px);
+      margin-left: rem(-140px);
+      width: 22%;
+
+      @include respond(phone) {
+        width: 10%;
+        margin-bottom: rem(8px);
+      }
+    }
+
+    &__text {
+      font-size: rem(72px);
+      font-weight: 700;
+      margin-bottom: rem(20px);
+    }
+
+    &__span {
+      color: #8c9cb0;
+      font-size: rem(18px);
+    }
+  }
+}
+
+.section {
+  &__hero {
+    padding: rem(100px) rem(92px) rem(240px) rem(92px);
+
+    @include respond(phone) {
+      padding: rem(60px) rem(20px) rem(150px) rem(20px);
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(80px);
+    align-items: center;
+    padding: rem(45px) rem(60px);
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      padding: rem(28px) 0;
+    }
+  }
+
+  &__text {
+    line-height: 1.5;
+    padding-right: rem(60px);
+    // font-size: rem(15px);
+
+    @include respond(phone) {
+      padding-right: 0;
+      padding: 0 rem(30px);
+      text-align: center;
+    }
+  }
+
+  &__img-box {
+    @include respond(phone) {
+      order: -1;
+    }
+  }
+
+  &__grow {
+    background-color: hsl(207, 100%, 98%);
+    // padding-bottom: 60px;
+    margin-bottom: rem(220px);
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 112px;
+      background: url(../images/bg-section-top-desktop-1.svg) no-repeat center
+        top;
+      background-size: 100% 112px;
+      position: absolute;
+      top: -112px;
+      left: 0;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 112px;
+      background: url(../images/bg-section-bottom-desktop-1.svg) no-repeat
+        center top;
+      background-size: 100% 112px;
+      position: absolute;
+      bottom: -112px;
+      left: 0;
+    }
+  }
+
+  &__flow {
+    margin-bottom: rem(220px);
+
+    @include respond(phone) {
+      margin-bottom: 180px;
+    }
+  }
+
+  &__user {
+    background-color: hsl(207, 100%, 98%);
+    margin-bottom: rem(220px);
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 112px;
+      background: url(../images/bg-section-top-desktop-2.svg) no-repeat center
+        top;
+      background-size: 100% 112px;
+      position: absolute;
+      top: -112px;
+      left: 0;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 112px;
+      background: url(../images/bg-section-bottom-desktop-2.svg) no-repeat
+        center top;
+      background-size: 100% 112px;
+      position: absolute;
+      bottom: -112px;
+      left: 0;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: rem(180px);
+
+    & h2 {
+      margin-bottom: rem(35px);
+
+      @include respond(phone) {
+        font-size: rem(28px);
+      }
+    }
+
+    @include respond(phone) {
+      margin-bottom: rem(100px);
+    }
+  }
+}
+
+.footer {
+  position: relative;
+  background-color: hsl(192, 100%, 9%);
+  color: hsl(207, 100%, 98%);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: rem(120px) rem(85px) rem(60px) rem(85px);
+  justify-content: space-between;
+
+  @include respond(phone) {
+    padding: rem(60px) rem(40px) rem(40px) rem(40px);
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 112px;
+    background: url(../images/bg-footer-top-desktop.svg) no-repeat center top;
+    background-size: 100% rem(114px);
+    position: absolute;
+    top: -111px;
+    left: 0;
+  }
+
+  &__logo {
+    margin-bottom: rem(30px);
+  }
+
+  &__info-box {
+    font-style: normal;
+  }
+
+  &__news {
+    &__text {
+      margin-bottom: rem(40px) !important;
+      padding-right: rem(230px) !important;
+
+      @include respond(phone) {
+        padding-right: 0 !important;
+      }
+    }
+
+    @include respond(phone) {
+      order: -1;
+    }
+  }
+
+  &__text {
+    font-size: rem(15px);
+    line-height: 1.4;
+    margin-bottom: 30px;
+    padding-right: rem(270px);
+
+    @include respond(phone) {
+      padding-right: 0;
+    }
+  }
+
+  &__list {
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: rem(15px);
+
+      &:not(last-of-type) {
+        margin-bottom: rem(20px);
+      }
+
+      &:last-of-type {
+        margin-bottom: rem(60px);
+      }
+    }
+  }
+
+  &__contact {
+    &__icon {
+      margin-right: rem(18px);
+      width: rem(34px);
+      height: rem(34px);
+
+      @include respond(phone) {
+        width: rem(22px);
+        height: rem(22px);
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    gap: rem(26px);
+
+    &__input {
+      padding: rem(13px) rem(48px);
+      border-radius: 6px;
+    }
+
+    @include respond(phone) {
+      flex-direction: column;
+      margin-bottom: rem(60px);
+      align-items: center;
+      // padding: rem(13px) rem(60px);
+    }
+  }
+
+  &__btn {
+    font-family: "Open Sans" sans-serif;
+    font-size: rem(15px);
+    font-weight: 600;
+    border-radius: 5px;
+    color: hsl(207, 100%, 98%);
+    background-color: hsl(322, 100%, 66%);
+    padding: rem(12px) rem(36px);
+
+    @include respond(phone) {
+      align-self: end;
+      margin-right: rem(15px);
+    }
+  }
+}
+
+// UTILITIES
