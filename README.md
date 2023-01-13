@@ -4,9 +4,9 @@
 
 <hr>
 
-🌐 [View the live site](https://spirit-101.github.io/fylo-landing-page-with-two-column-layout/)
+🌐 [View the live site](https://spirit-101.github.io/huddle-landing-page-with-curved-sections/)
 
-🧠 [Check out the solution](https://www.frontendmentor.io/solutions/fylo-landing-page-with-two-column-layout-aJ7dN6kcTu)
+🧠 [Check out the solution](https://www.frontendmentor.io/solutions/huddle-landing-page-with-curved-sections-PfaT6PzKjJ)
 
 📝 [View the challenge](https://www.frontendmentor.io/challenges/huddle-landing-page-with-curved-sections-5ca5ecd01e82137ec91a50f2)
 
